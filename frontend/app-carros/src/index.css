@@ -1,4 +1,6 @@
-body {
+* {
+  --cor-primaria: #3374db;
   margin: 0px;
   padding: 0px;
+  font-family: "Roboto";
 }

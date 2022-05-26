@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;500;700;900&family=Secular+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Secular+One&display=swap');
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    height: 84px;
+    box-shadow: 0 0.063rem 0.313rem 0 rgb(70 70 70 / 15%), 0 0.125rem 0.125rem 0 rgba(70, 70, 70, 0.15), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+}
+
+#logo {
+    font-family: 'Creepster', cursive;
+    font-size: 2.8em;
+    cursor: pointer;
+}
+
+.ul {
+    list-style: none;
+    display: flex;
+    margin: 0px;
+}
+
+@media(max-width: 992px) {
+    .ul {
+        display: none;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.header-mobile {
+    background-color: red;
+}
+
+.logoConta {
+    display: flex;
+    align-items: center;
+}
+
+.icone {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+.aside {
+    position: absolute;
+    left: 505px;
+    top: 35px;
+    width: 150px;
+    height: 100px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0.063rem 0.313rem 0 rgb(70 70 70 / 15%), 0 0.125rem 0.125rem 0 rgb(70 70 70 / 15%), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+    transition: all ease-in-out .3s;
+}
+
+@media(max-width: 1200px) {
+    .aside {
+        left: 400px;
+    }
+}
+
+.aside>p {
+    margin: 3px;
+    padding: 5px 10px;
+}
+
+.aside>p:hover {
+    border-radius: 5px;
+    background-color: var(--cor-primaria);
+    color: white;
+    transition: all ease-in-out .3s;
+}
+
+.svg {
+    color: var(--cor-primaria);
+}
+
+.sobre {
+    background-color: white;
+    width: 200px;
+    padding: 12px;
+    position: absolute;
+    left: 295px;
+    top: 35px;
+    border-radius: 5px;
+    box-shadow: 0 0.063rem 0.313rem 0 rgb(70 70 70 / 15%), 0 0.125rem 0.125rem 0 rgb(70 70 70 / 15%), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+}
+
+.sobre>p {
+    margin: 3px;
+    padding: 5px 10px;
+    transition: all ease-in-out .3s;
+}
+
+.sobre>p:hover {
+    border-radius: 5px;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.caixa-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.li {
+    padding: 0px 16px;
+    opacity: 0.9;
+}
+
+.active {
+    color: var(--cor-primaria);
+}
+
+.li:last-child {
+    padding-left: 8px;
+}
+
+.li:hover {
+    opacity: 1;
+}
+
+.li {
+    cursor: pointer;
+}
+
+@media(max-width: 1200px) {
+    .li:last-child {
+        display: none;
+    }
+}
+
+.menu-hamburguer {
+    font-size: 1.8em;
+    display: none;
+}
+
+@media(max-width: 992px) {
+    .menu-hamburguer {
+        display: block;
+    }
+}
+
+.caixa-hamburguer {
+    display: flex;
+}
+
+.nav-mobile {
+    width: 100%;
+    height: calc(100vh - 84px);
+    position: fixed;
+    top: 84px;
+}
+
+@media(min-width:993px) {
+    .nav-mobile {
+        display: none;
+    }
+}
+
+.nav-mobile-itens>p {
+    padding-top: 10px;
+    opacity: 0.9;
+}
+
+.nav-mobile-itens>p:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#sobre-ajuda {
+    display: flex;
+    justify-content: space-between;
+}
+
+.svg-buy-sell {
+    font-size: 1.3em;
+    margin-right: 10px;
+}
+
+hr {
+    color: rgba(0, 0, 0, 0.466);
+}
