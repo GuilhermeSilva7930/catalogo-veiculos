@@ -63,8 +63,8 @@ const Navbar = () => {
             </div>
             {menu
                 ?
-                <div className="nav-mobile container">
-                    <div className="mt-4 nav-mobile-itens">
+                <div className="nav-mobile">
+                    <div className="mt-4 nav-mobile-itens container">
                         <p>
                             <BsCashCoin className="svg-buy-sell"></BsCashCoin>
                             Comprar carro

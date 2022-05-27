@@ -7,7 +7,8 @@
     display: flex;
     justify-content: center;
     height: 84px;
-    box-shadow: 0 0.063rem 0.313rem 0 rgb(70 70 70 / 15%), 0 0.125rem 0.125rem 0 rgba(70, 70, 70, 0.15), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+    box-shadow: 0 0.063rem 0.313rem 0 rgba(70, 70, 70, 0.562), 0 0.125rem 0.125rem 0 rgba(70, 70, 70, 0.15), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+    position: relative;
 }
 
 #logo {
@@ -33,10 +34,6 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-}
-
-.header-mobile {
-    background-color: red;
 }
 
 .logoConta {
@@ -160,6 +157,8 @@
     height: calc(100vh - 84px);
     position: fixed;
     top: 84px;
+    background-color: white;
+    z-index: 1;
 }
 
 @media(min-width:993px) {

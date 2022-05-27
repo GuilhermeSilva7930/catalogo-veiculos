@@ -1,0 +1,20 @@
+.barra-pesquisa {
+    height: 64px;
+    background-color: var(--cor-primaria);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+.pesquisa {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+}
+
+.pesquisa::placeholder {
+    padding-left: 5px;
+    opacity: 0.8;
+}
