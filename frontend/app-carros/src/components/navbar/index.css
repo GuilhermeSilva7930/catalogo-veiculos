@@ -65,12 +65,18 @@
     }
 }
 
-.aside>p {
-    margin: 3px;
-    padding: 5px 10px;
+.link {
+    text-decoration: none;
+    color: black;
 }
 
-.aside>p:hover {
+.aside-p {
+    margin: 3px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.aside-p:hover {
     border-radius: 5px;
     background-color: var(--cor-primaria);
     color: white;
@@ -79,6 +85,23 @@
 
 .svg {
     color: var(--cor-primaria);
+}
+
+#sobre {
+    background-color: white;
+    width: 200px;
+}
+
+#sobre>p {
+    margin: 3px;
+    padding: 5px 10px;
+    transition: all ease-in-out .3s;
+}
+
+#sobre>p:hover {
+    border-radius: 5px;
+    background-color: var(--cor-primaria);
+    color: white;
 }
 
 .sobre {
@@ -178,6 +201,7 @@
 }
 
 #sobre-ajuda {
+    margin: 0;
     display: flex;
     justify-content: space-between;
 }

@@ -6,7 +6,13 @@ import { GrMenu } from "react-icons/gr";
 import { GrClose } from "react-icons/gr";
 import { MdOutlineSell } from "react-icons/md";
 import { BsCashCoin } from "react-icons/bs";
+import Typography from '@mui/material/Typography';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import AccordionDetails from '@mui/material/AccordionDetails';
 import "./index.css"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -17,7 +23,9 @@ const Navbar = () => {
     return (
         <header className="header">
             <div className="container-md caixa-nav">
-                <div id="logo">Silva</div>
+                <Link className="link" to="/">
+                    <div id="logo">Silva</div>
+                </Link>
                 <nav className="nav">
                     <ul className="ul">
                         <li className="li">Comprar Carro</li>
@@ -45,8 +53,12 @@ const Navbar = () => {
                         </div>
                         {conectar ?
                             <div className="aside" onMouseLeave={() => setConectar(false)}>
-                                <p>Cadastre-se</p>
-                                <p>Iniciar sessão</p>
+                                <Link className="link" to="/cadastrar">
+                                    <p className="aside-p">Cadastre-se</p>
+                                </Link>
+                                <Link className="link" to="/entrar">
+                                    <p className="aside-p">Iniciar sessão</p>
+                                </Link>
                             </div>
                             :
                             ""
@@ -76,12 +88,45 @@ const Navbar = () => {
                         <hr />
                         <p>App Silva</p>
                         <p id="sobre-ajuda">
-                            Sobre nós
-                            <MdOutlineKeyboardArrowDown className="svg"></MdOutlineKeyboardArrowDown>
+                            <Accordion sx={{ boxShadow: "none", width: "100%" }}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon sx={{ color: "var(--cor-primaria)", fontSize: "30px" }} />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    sx={{ padding: "0" }}
+                                >
+                                    <Typography>Sobre nós</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        <div id="sobre">
+                                            <p>Onde estamos</p>
+                                            <p>Guia de preços</p>
+                                            <p>Blog</p>
+                                        </div>
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
                         </p>
                         <p id="sobre-ajuda">
-                            Ajuda
-                            <MdOutlineKeyboardArrowDown className="svg"></MdOutlineKeyboardArrowDown>
+                            <Accordion sx={{ boxShadow: "none", width: "100%" }}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon sx={{ color: "var(--cor-primaria)", fontSize: "30px" }} />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                    sx={{ padding: "0" }}
+                                >
+                                    <Typography>Ajuda</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        <div id="sobre">
+                                            <p>Perguntas Frequentes</p>
+                                            <p>Contato</p>
+                                        </div>
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
                         </p>
                     </div>
                 </div>

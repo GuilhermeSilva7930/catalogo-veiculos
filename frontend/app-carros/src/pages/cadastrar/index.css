@@ -1,0 +1,15 @@
+.cadastrar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 132px);
+}
+
+.centralizar {
+    display: flex;
+    justify-content: center;
+}
+
+.entrar {
+    cursor: pointer;
+}
