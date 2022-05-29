@@ -155,7 +155,7 @@
 .nav-mobile {
     width: 100%;
     height: calc(100vh - 84px);
-    position: fixed;
+    position: absolute;
     top: 84px;
     background-color: white;
     z-index: 1;

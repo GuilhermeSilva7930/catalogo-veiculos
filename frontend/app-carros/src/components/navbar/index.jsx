@@ -16,7 +16,7 @@ const Navbar = () => {
 
     return (
         <header className="header">
-            <div className="container caixa-nav">
+            <div className="container-md caixa-nav">
                 <div id="logo">Silva</div>
                 <nav className="nav">
                     <ul className="ul">
@@ -64,7 +64,7 @@ const Navbar = () => {
             {menu
                 ?
                 <div className="nav-mobile">
-                    <div className="mt-4 nav-mobile-itens container">
+                    <div className="mt-4 nav-mobile-itens container-md">
                         <p>
                             <BsCashCoin className="svg-buy-sell"></BsCashCoin>
                             Comprar carro
