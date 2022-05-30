@@ -7,5 +7,4 @@ import com.silva.catalogo.entities.Veiculo;
 
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
-	
 }
