@@ -5,7 +5,7 @@ import { PainelAdmAtualizar, PainelAdmCadastrar } from "../components/painelAdm/
 import CarroProvider from "../context/CarroContext"
 import Cadastrar from "../pages/cadastrar"
 import Entrar from "../pages/entrar"
-import Home from "../pages/Home"
+import Home from "../pages/home/index"
 
 export default function Rotas() {
     return (
