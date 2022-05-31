@@ -22,7 +22,7 @@ const PainelAdm = () => {
 
     function atualizar(carro) {
         localStorage.setItem("marca", carro.marca)
-        localStorage.setItem("modelo", carro.modelo)
+        localStorage.setItem("nome", carro.modelo)
         localStorage.setItem("modelo", carro.modelo)
         localStorage.setItem("foto", carro.foto)
         localStorage.setItem("preco", carro.preco)
