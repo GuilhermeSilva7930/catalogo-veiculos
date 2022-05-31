@@ -53,12 +53,20 @@ const Navbar = () => {
                         </div>
                         {conectar ?
                             <div className="aside" onMouseLeave={() => setConectar(false)}>
-                                <Link className="link" to="/cadastrar">
-                                    <p className="aside-p">Cadastre-se</p>
-                                </Link>
-                                <Link className="link" to="/entrar">
-                                    <p className="aside-p">Iniciar sessão</p>
-                                </Link>
+                                {localStorage.getItem("token") !== null ?
+                                    <Link className="link" to="/perfil">
+                                        <p className="aside-p">Meu perfil</p>
+                                    </Link>
+                                    :
+                                    <React.Fragment>
+                                        <Link className="link" to="/cadastrar">
+                                            <p className="aside-p">Cadastre-se</p>
+                                        </Link>
+                                        <Link className="link" to="/entrar">
+                                            <p className="aside-p">Iniciar sessão</p>
+                                        </Link>
+                                    </React.Fragment>
+                                }
                             </div>
                             :
                             ""

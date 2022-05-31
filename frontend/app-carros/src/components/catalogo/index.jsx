@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./index.css"
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,6 +12,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { BiFilter } from "react-icons/bi";
 import { GrClose } from "react-icons/gr";
+import { findAll } from "../../services/carrosService";
+import { Link } from "react-router-dom";
+import { CarroContext } from "../../context/CarroContext";
 
 const Catalogo = () => {
 
@@ -42,7 +45,17 @@ const Catalogo = () => {
 
     function mudarNome() {
         setMudar(!mudar)
+        console.log(carros)
     }
+
+    const [carros, setCarros] = useState([])
+
+    const { carrosContext } = useContext(CarroContext)
+
+    useEffect(() => {
+        console.log(carrosContext)
+        findAll().then(res => setCarros(res)).catch(res => console.log(res))
+    }, [])
 
     return (
         <div className="container-md">
@@ -54,7 +67,7 @@ const Catalogo = () => {
                     <div className="filtros-celular">
                         <GrClose className="menu-hamburguer" onClick={filtrosTelaToda}></GrClose>
                         <span className="">Filtros</span>
-                        <button className="remover-filtros">Remover filtros</button>
+                        <Link className="link" to="/"><button className="remover-filtros">Remover filtros</button></Link>
                     </div>
                     <Accordion sx={{ boxShadow: "none", marginTop: "25px" }}>
                         <AccordionSummary
@@ -98,7 +111,7 @@ const Catalogo = () => {
                             :
                             <span onClick={mudarNome}>Ocultar Filtros</span>}
                     </button>
-                    <button className="remover-filtros">Remover filtros</button>
+                    <Link className="link" to="/"><button className="remover-filtros">Remover filtros</button></Link>
                 </div>
                 <div className="col-9 filtros resultados mb-2">
                     <p className="numero-resultados">5.864 Resultados</p>
@@ -139,234 +152,54 @@ const Catalogo = () => {
                     </Accordion>
                 </div>
                 <div className="col-md-9 col-sm-12 col-12 carros">
-                    <Card className="cardPequeno" sx={{ margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
-                    <Card className="cardPequeno" sx={{ minWidth: 200, margin: "5px" }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image="https://images.kavak.services/images/150363/EXTERIOR-frontSidePilotNear-1640185821388.jpeg?d=540x310"
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                Bmw 328i SPORT GP
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                2014 • 93.320 km • São Paulo
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="large">R$ 115.999</Button>
-                        </CardActions>
-                    </Card>
+                    {carrosContext.length === 0 ?
+                        <>
+                            {carros.map(carro => (
+                                <Card key={carro.id} className="cardPequeno" sx={{ margin: "5px" }}>
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image={carro.foto}
+                                        alt="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {carro.modelo}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {carro.marca}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="large">R$: {carro.preco}</Button>
+                                    </CardActions>
+                                </Card>
+                            ))}
+                        </> :
+                        <>
+                            {carrosContext.map(carro => (
+                                <Card key={carro.id} className="cardPequeno" sx={{ margin: "5px" }}>
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image={carro.foto}
+                                        alt="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {carro.modelo}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {carro.marca}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="large">R$: {carro.preco}</Button>
+                                    </CardActions>
+                                </Card>
+                            ))}
+                        </>
+                    }
                 </div>
             </div>
         </div>

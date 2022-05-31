@@ -1,0 +1,5 @@
+.erro {
+    color: red;
+    text-align: center;
+    transition: all ease-in-out .3s;
+}

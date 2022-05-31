@@ -76,4 +76,10 @@ public class Veiculo {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+	
+	@Override
+	public String toString() {
+		return  id + "," + nome + "," + marca + "," + modelo + "," + foto
+				+ ", " + preco;
+	}
 }

@@ -27,7 +27,6 @@ public class UsuarioResource {
 			UsuarioRepository.save(Usuario);
 			return ResponseEntity.ok().body(Usuario);
 		}catch (Exception e) {
-			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
 		return null;

@@ -1,5 +1,9 @@
 package com.silva.catalogo.services;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
@@ -17,7 +21,7 @@ public class VeiculoService {
 	private VeiculoRepository repository;
 
 	public Page<Veiculo> findAll(Pageable pageable, Sort sorts) {
-		Sort sort = Sort.by("preco").ascending();
+		Sort sort = Sort.by("preco").descending();
 		PageRequest pegeable = PageRequest.of(0, 14, sort);
 		return repository.findAll(pegeable);
 	}
@@ -30,4 +34,15 @@ public class VeiculoService {
 		repository.deleteById(id);
 	}
 
+	public List<Veiculo> findAllByMarca(String marca) {
+		List<Veiculo> marcas = repository.findAll().stream().filter(veiculo -> veiculo.getMarca().toLowerCase().contains(marca)).collect(Collectors.toList());
+		marcas.forEach(veiculo -> System.out.println(veiculo.toString()));
+		return marcas;
+	}
+	
+	public List<Veiculo> findAllByModelo(String modelos) {
+		var modelo = repository.findAll().stream().filter(veiculo -> veiculo.getModelo().toLowerCase().contains(modelos)).collect(Collectors.toList());
+		modelo.forEach(veiculo -> System.out.println(veiculo.toString()));
+		return modelo;
+	}
 }

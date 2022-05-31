@@ -1,5 +1,7 @@
 package com.silva.catalogo.config;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -36,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable().authorizeRequests().antMatchers("/veiculos/admin/**").hasRole("ADMIN")
-				.antMatchers("/veiculos/**").hasRole("USER").antMatchers("/**").permitAll().anyRequest().authenticated()
+				.antMatchers("/**").permitAll().anyRequest().authenticated()
 				.and().formLogin().and().httpBasic();
 
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -46,8 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+		configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "OPTIONS"));
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
 }
