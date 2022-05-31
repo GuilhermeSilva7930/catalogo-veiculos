@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deletar, findAll } from "../../services/carrosService";
+import "./index.css"
 import Navbar from "../navbar";
 
 const PainelAdm = () => {
@@ -32,7 +33,7 @@ const PainelAdm = () => {
     return (
         <React.Fragment>
             <Navbar></Navbar>
-            <div className="container">
+            <div className="admin">
                 <table className="table mt-5" border="1">
                     <thead>
                         <tr>

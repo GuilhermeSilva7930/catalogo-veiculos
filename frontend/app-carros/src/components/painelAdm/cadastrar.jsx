@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { save, update } from "../../services/carrosService";
+import "./index.css"
 import Navbar from "../navbar";
 
 export const PainelAdmCadastrar = () => {

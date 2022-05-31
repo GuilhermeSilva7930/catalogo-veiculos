@@ -1,0 +1,14 @@
+.admin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media(max-width: 1220px) {
+    .table {
+        overflow: hidden;
+    }
+    .admin {
+        overflow-y: scroll;
+    }
+}

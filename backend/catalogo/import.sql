@@ -8,4 +8,4 @@ INSERT INTO veiculo(marca, modelo, nome, preco, foto) VALUES("Suzuki", "Jimny 4A
 INSERT INTO veiculo(marca, modelo, nome, preco, foto) VALUES("Toyota", "Corolla ALTIS", "Toyota Corolla ALTIS", 94.999, "https://images.kavak.services/images/126960/EXTERIOR-frontSidePilotNear-16370909549766.jpg?d=540x310")
 INSERT INTO veiculo(marca, modelo, nome, preco, foto) VALUES("LAND ROVER", "DISCOVERY SPORT TD4 TURBO HSE", "LAND ROVER DISCOVERY SPORT TD4 TURBO HSE", 214.999, "https://images.kavak.services/images/112456/EXTERIOR-frontSidePilotNear-16315568921606.jpg?d=540x310");
 
-INSERT INTO usuario(username, password, authorities) values("guilherme", "123456", "ROLE_ADMIN,ROLE_USER");
+INSERT INTO usuario(username, password, authorities) values("guilherme", "{bcrypt}$2a$10$WANOfn2JQoQqhNfnE/uaBeyf49ULPyQjECv94QrdM4mUyL4h/VQLW", "ROLE_ADMIN,ROLE_USER");
