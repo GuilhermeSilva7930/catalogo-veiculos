@@ -1,6 +1,5 @@
 package com.silva.catalogo.services;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +19,14 @@ public class VeiculoService {
 	@Autowired
 	private VeiculoRepository repository;
 
-	public Page<Veiculo> findAll(Pageable pageable, Sort sorts) {
+	public Page<Veiculo> findAllByDescending (Pageable pageable, Sort sorts) {
 		Sort sort = Sort.by("preco").descending();
+		PageRequest pegeable = PageRequest.of(0, 14, sort);
+		return repository.findAll(pegeable);
+	}
+	
+	public Page<Veiculo> findAllByAscending (Pageable pageable, Sort sorts) {
+		Sort sort = Sort.by("preco").ascending();
 		PageRequest pegeable = PageRequest.of(0, 14, sort);
 		return repository.findAll(pegeable);
 	}

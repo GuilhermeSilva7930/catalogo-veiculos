@@ -20,6 +20,11 @@ const Navbar = () => {
     const [aberto, setAberto] = useState(false)
     const [menu, setMenu] = useState(false)
 
+    function desconectar() {
+        localStorage.removeItem("token")
+        window.location.reload()
+    }
+
     return (
         <header className="header">
             <div className="container-md caixa-nav">
@@ -54,9 +59,12 @@ const Navbar = () => {
                         {conectar ?
                             <div className="aside" onMouseLeave={() => setConectar(false)}>
                                 {localStorage.getItem("token") !== null ?
-                                    <Link className="link" to="/perfil">
-                                        <p className="aside-p">Meu perfil</p>
-                                    </Link>
+                                    <>
+                                        <Link className="link" to="/perfil">
+                                            <p className="aside-p">Meu perfil</p>
+                                        </Link>
+                                        <p className="aside-p" onClick={desconectar}>Desconectar</p>
+                                    </>
                                     :
                                     <React.Fragment>
                                         <Link className="link" to="/cadastrar">

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
 import "./index.css"
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,7 +12,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { BiFilter } from "react-icons/bi";
 import { GrClose } from "react-icons/gr";
-import { findAll } from "../../services/carrosService";
+import { findAll, findAllByMarca } from "../../services/carrosService";
 import { Link } from "react-router-dom";
 import { CarroContext } from "../../context/CarroContext";
 
@@ -50,12 +50,23 @@ const Catalogo = () => {
 
     const [carros, setCarros] = useState([])
 
-    const { carrosContext } = useContext(CarroContext)
+    const { carrosContext, setCarrosContext } = useContext(CarroContext)
 
     useEffect(() => {
-        console.log(carrosContext)
         findAll().then(res => setCarros(res)).catch(res => console.log(res))
     }, [])
+
+    function pesquisar(marca) {
+        console.log("teste")
+        if (marca === "") {
+            setCarrosContext([])
+        } else {
+            findAllByMarca(marca).then(res => setCarrosContext(res)).catch(res => console.log(res))
+            filtrosTelaToda()
+        }
+    }
+
+    const pesquisaInput = useRef()
 
     return (
         <div className="container-md">
@@ -93,16 +104,15 @@ const Catalogo = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>
-                                <input className="filtro-input" placeholder="Busca por marca..." type="text" />
+                                <input className="filtro-input" ref={pesquisaInput} placeholder="Busca por marca..." type="text" />
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
-                    <Button className="mostrar-resultados mt-3" variant="outlined">Mostrar Resultados</Button>
+                    <Button className="mostrar-resultados mt-3" onClick={e => pesquisar(pesquisaInput.current.value)} variant="outlined">Mostrar Resultados</Button>
                 </div>
             </div>
             <div className="row mt-4">
                 <div className="col-md-3 filtros filtros-ocultar mb-2">
-
                     <button onClick={mostrarOcultar} className="ocultar-filtros">
                         <BiFilter className="svg-filtro"></BiFilter>
                         {mudar
@@ -146,7 +156,7 @@ const Catalogo = () => {
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>
-                                <input className="filtro-input" placeholder="Busca por marca..." type="text" />
+                                <input className="filtro-input" onChange={e => pesquisar(e.target.value)} placeholder="Busca por marca..." type="text" />
                             </Typography>
                         </AccordionDetails>
                     </Accordion>

@@ -51,7 +51,7 @@ const PainelAdm = () => {
                                 <td>{carro.marca}</td>
                                 <td>{carro.nome}</td>
                                 <td>{carro.modelo}</td>
-                                <td><a target={"_blank"} href={carro.foto}>{carro.foto}</a></td>
+                                <td><a target={"_blank"} rel="noreferrer" href={carro.foto}>{carro.foto}</a></td>
                                 <td>R$: {carro.preco}</td>
                                 <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                                     <button onClick={() => del(carro.id)} type="button" className="btn btn-danger">Deletar</button>

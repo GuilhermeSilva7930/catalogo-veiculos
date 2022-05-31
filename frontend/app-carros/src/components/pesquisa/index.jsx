@@ -8,7 +8,7 @@ const Pesquisa = () => {
     const { setCarrosContext } = useContext(CarroContext)
 
     function pesquisar(marca) {
-        if (marca == "") {
+        if (marca === "") {
             setCarrosContext([])
         } else {
             findAllByMarca(marca).then(res => setCarrosContext(res)).catch(res => console.log(res))

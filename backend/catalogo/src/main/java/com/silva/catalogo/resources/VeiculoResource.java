@@ -29,15 +29,20 @@ public class VeiculoResource {
 	private VeiculoService services;
 
 	@GetMapping
-	public Page<Veiculo> findAll(Pageable pageable, Sort sort) {
-		return services.findAll(pageable, sort);
+	public Page<Veiculo> findAllByDescending(Pageable pageable, Sort sort) {
+		return services.findAllByDescending(pageable, sort);
 	}
-	
+
+	@GetMapping("/maior-menor")
+	public Page<Veiculo> findAllByAscending(Pageable pageable, Sort sort) {
+		return services.findAllByAscending(pageable, sort);
+	}
+
 	@GetMapping("/marca/{marca}")
 	public List<Veiculo> findAllByMarca(@PathVariable String marca) {
 		return services.findAllByMarca(marca);
 	}
-	
+
 	@GetMapping("/modelo/{modelo}")
 	public List<Veiculo> findAllByModelo(@PathVariable String modelo) {
 		return services.findAllByModelo(modelo);

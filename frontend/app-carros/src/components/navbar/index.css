@@ -58,6 +58,24 @@
     transition: all ease-in-out .3s;
 }
 
+.aside-relevante {
+    position: absolute;
+    right: 120px;
+    top: 240px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0.063rem 0.313rem 0 rgb(70 70 70 / 15%), 0 0.125rem 0.125rem 0 rgb(70 70 70 / 15%), 0 0.188rem 0.125rem -0.125rem rgb(70 70 70 / 15%);
+    transition: all ease-in-out .3s;
+}
+
+.aside-relevante>p:hover {
+    border-radius: 5px;
+    background-color: var(--cor-primaria);
+    color: white;
+    transition: all ease-in-out .3s;
+}
+
 @media(max-width: 1200px) {
     .aside {
         left: 400px;
