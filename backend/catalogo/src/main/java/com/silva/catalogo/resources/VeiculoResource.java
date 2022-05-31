@@ -33,11 +33,6 @@ public class VeiculoResource {
 		return services.findAllByDescending(pageable, sort);
 	}
 
-	@GetMapping("/maior-menor")
-	public Page<Veiculo> findAllByAscending(Pageable pageable, Sort sort) {
-		return services.findAllByAscending(pageable, sort);
-	}
-
 	@GetMapping("/marca/{marca}")
 	public List<Veiculo> findAllByMarca(@PathVariable String marca) {
 		return services.findAllByMarca(marca);
